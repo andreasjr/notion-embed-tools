@@ -1,2 +1,1 @@
-# notion-embed-tools
-A set of tools for use in Notion embeds.
+This is a starter template for [Learn Next.js](https://nextjs.org/learn).
