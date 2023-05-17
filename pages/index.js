@@ -1,7 +1,9 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
+	const router = useRouter();
   return (
     <div className={styles.container}>
       <Head>
@@ -15,6 +17,7 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
+        <p>router path: {router.asPath}</p>
           Get started by editing <code>pages/index.js</code>
         </p>
 
