@@ -1,10 +1,14 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
+import { UrlParams } from '../dependencies/context';
+import PageProperties from '../modules/page-properties';
+
 export default function Test() {
 	const router = useRouter();
-	const { database } = router.query;
 	return(<>
-	Hey { " " + (database ? database : 'Loading...') }
+		<UrlParams.Provider value={router.query}>
+			<PageProperties />
+		</UrlParams.Provider>
 	</>);
 }
