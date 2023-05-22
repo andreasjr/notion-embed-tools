@@ -1,3 +1,52 @@
+:root {
+    --preset--color--base:      #FFFFFF;
+    --preset--color--contrast:  #37352F;
+    --preset--color--gray:      #787774;
+    --preset--color--brown:     #9F6B53;
+    --preset--color--orange:    #D9730D;
+    --preset--color--yellow:    #CB912F;
+    --preset--color--green:     #448361;
+    --preset--color--blue:      #337EA9;
+    --preset--color--purple:    #9065B0;
+    --preset--color--pink:      #C14C8A;
+    --preset--color--red:       #D44C47;
+
+    --preset--color--gray-bg:   #F1F1EF;
+    --preset--color--brown-bg:  #F4EEEE;
+    --preset--color--orange-bg: #FBECDD;
+    --preset--color--yellow-bg: #FBF3DB;
+    --preset--color--green-bg:  #EDF3EC;
+    --preset--color--blue-bg:   #E7F3F8;
+    --preset--color--purple-bg: #F4F0F7;
+    --preset--color--pink-bg:   #F9EEF3;
+    --preset--color--red-bg:    #FDEBEC;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --preset--color--base:      #191919;
+    --preset--color--contrast:  rgba(255, 255, 255, 0.81);
+    --preset--color--gray:      #9B9B9B;
+    --preset--color--brown:     #BA856F;
+    --preset--color--orange:    #C77D48;
+    --preset--color--yellow:    #CA9849;
+    --preset--color--green:     #529E72;
+    --preset--color--blue:      #5E87C9;
+    --preset--color--purple:    #9D68D3;
+    --preset--color--pink:      #D15796;
+    --preset--color--red:       #DF5452;
+
+    --preset--color--gray-bg:   #2F2F2F;
+    --preset--color--brown-bg:  #4A3228;
+    --preset--color--orange-bg: #5C3B23;
+    --preset--color--yellow-bg: #564328;
+    --preset--color--green-bg:  #243D30;
+    --preset--color--blue-bg:   #143A4E;
+    --preset--color--purple-bg: #3C2D49;
+    --preset--color--pink-bg:   #4E2C3C;
+    --preset--color--red-bg:    #522E2A;
+  }
+}
+
 html,
 body {
   padding: 1rem;
@@ -5,12 +54,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: transparent;
-  color: black;
+  color: var(--preset--color--contrast);
 }
-@media (prefers-color-scheme: dark) {
-  body {
-    color: white;
-  }
+
+body.browser-mode {
+  background-color: var(--preset--color--base);
 }
 
 a {
@@ -42,4 +90,14 @@ ul {
 button {
   padding: 0.5rem 1rem;
   font-weight: bold;
+}
+
+$colors: base, contrast, gray, brown, orange, yellow, green, blue, purple, pink, red;
+@each $color in $colors {
+    .has-#{$color}-color {
+        color:var(--preset--color--#{$color});
+    }
+    .has-#{$color}-background-color {
+        background-color:var(--preset--color--#{$color}-bg);
+    }
 }
