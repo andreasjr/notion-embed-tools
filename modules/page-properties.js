@@ -21,8 +21,9 @@ export default function PageProperties({}) {
 		})
 	}, [urlParams])
 
+	
 	return(<>
-		URL Key: {key ? key : 'Loading key..'}<br/>
+		<span className="has-yellow-color">URL Key: {key ? key : 'Loading key..'}</span><br/>
 		URL ID: {id ? id : 'Loading ID...'}<br/>
 		Data: <pre>{JSON.stringify(data, null, '\t')}</pre>
 	</>);
